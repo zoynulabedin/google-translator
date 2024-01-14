@@ -1,0 +1,30 @@
+{% if section.settings.translate == true %}
+    <div id="google_translate_element"></div>
+{% endif %}
+
+
+  {% if section.settings.translate == true %}
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      }
+    </script>
+  
+    <script type="text/javascript" async src="{{ 'translate.google.com/translate_a/element.js?cb=googleTranslateElementInit' | asset_url }}">
+    </script>
+  {% endif %}
+  
+  {% schema %}
+{
+  "name": "translator",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "translate",
+      "label": "Translate",
+      "default": false
+    }
+  ]
+}
+{% endschema %}
+  
